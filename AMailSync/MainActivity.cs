@@ -12,6 +12,7 @@ namespace AMailSync
     public class MainActivity : Activity
     {
         //int count = 1;
+        //private static readonly string 
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -24,8 +25,14 @@ namespace AMailSync
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.MyButton);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", DateTime.Now.ToLongTimeString()); };
+            button.Click +=
+                delegate { button.Text = string.Format("{0} Timer clicks!", DateTime.Now.ToLongTimeString()); };
+
+            Button buttonMonitor = FindViewById<Button>(Resource.Id.FollowToMonitorButton);
+
+            buttonMonitor.Click +=
+                delegate { StartActivity(new Intent("AMailSync.ServiceMonitorActivity")); };
         }
+
     }
 }
-
