@@ -6,19 +6,10 @@
 //  Original author: Falcon
 ///////////////////////////////////////////////////////////
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
+namespace AMailSync {
+	public class TimeServiceBinder : Android.OS.Binder {
 
-
-
-using DemoService;
-using StockService;
-namespace DemoService {
-	public class TimeServiceBinder : Binder {
-
-		private DemoService service;
+		private TimeService service;
 
 		public TimeServiceBinder(){
 
@@ -29,14 +20,14 @@ namespace DemoService {
 		}
 
 		/// 
-		/// <param name="service">change to correct service typr</param>
-		public TimeServiceBinder(StockService service){
+		/// <param name="service">change to correct service typу</param>
+		public TimeServiceBinder(TimeService service){
+            this.service = service;
+        }
 
-		}
+		public TimeService GetTimeService(){
 
-		public DemoService GetDemoService(){
-
-			return null;
+			return service;
 		}
 
 	}//end TimeServiceBinder

@@ -6,16 +6,13 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace AMailSync
-{
+namespace AMailSync {
     [Activity(Label = "AMailSync", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
-    {
+    public class MainActivity : Activity {
         //int count = 1;
         //private static readonly string 
 
-        protected override void OnCreate(Bundle bundle)
-        {
+        protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
@@ -31,7 +28,7 @@ namespace AMailSync
             Button buttonMonitor = FindViewById<Button>(Resource.Id.FollowToMonitorButton);
 
             buttonMonitor.Click +=
-                delegate { StartActivity(new Intent("AMailSync.ServiceMonitorActivity")); };
+                delegate { StartActivity(new Intent(this, typeof(MonitorActivity))); };
         }
 
     }
