@@ -66,6 +66,18 @@ namespace AMailSync
 			// aapt resource value: 0x7f050000
 			public const int MyButton = 2131034112;
 			
+			// aapt resource value: 0x7f050005
+			public const int buttonRefresh = 2131034117;
+			
+			// aapt resource value: 0x7f050002
+			public const int buttonStartService = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int buttonStopService = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int textViewServiceResponce = 2131034116;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -81,6 +93,9 @@ namespace AMailSync
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int MonitorLayout = 2130903041;
 			
 			static Layout()
 			{
@@ -103,6 +118,9 @@ namespace AMailSync
 			
 			// aapt resource value: 0x7f040002
 			public const int Monitor = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int Refresh = 2130968579;
 			
 			static String()
 			{

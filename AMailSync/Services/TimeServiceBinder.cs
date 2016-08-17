@@ -27,7 +27,7 @@ namespace AMailSync.Services
             this.service = service;
         }
 
-        public TimeService GetTimeService()
+        public TimeService GetService()
         {
             return service;
         }
