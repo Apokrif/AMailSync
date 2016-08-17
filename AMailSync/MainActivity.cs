@@ -5,16 +5,15 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using AMailSync.View;
 
-namespace AMailSync
-{
+namespace AMailSync {
     [Activity(Label = "AMailSync", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
-    {
+    public class MainActivity : Activity {
         //int count = 1;
+        //private static readonly string 
 
-        protected override void OnCreate(Bundle bundle)
-        {
+        protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
@@ -24,8 +23,14 @@ namespace AMailSync
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.MyButton);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", DateTime.Now.ToLongTimeString()); };
+            button.Click +=
+                delegate { button.Text = string.Format("{0} Timer clicks!", DateTime.Now.ToLongTimeString()); };
+
+            Button buttonMonitor = FindViewById<Button>(Resource.Id.FollowToMonitorButton);
+
+            buttonMonitor.Click +=
+                delegate { StartActivity(new Intent(this, typeof(MonitorActivity))); };
         }
+
     }
 }
-
