@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AMailSync.MainActivity">
-    <Position X="0.75" Y="1.75" Width="1.5" />
+    <Position X="2.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainActivity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Android.App.Activity" Collapsed="true">
-    <Position X="4" Y="2.25" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Orientation="Right" Position="0.1" />
   </Class>

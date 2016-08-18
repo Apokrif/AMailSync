@@ -4,8 +4,10 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using Android.Content.PM;
 
-namespace AMailSync.View {
+namespace AMailSync.View
+{
     [Activity(Label = "Monitor")]
     public class MonitorActivity : Activity
     {
@@ -24,25 +26,27 @@ namespace AMailSync.View {
             base.OnStart();
 
             //Since Android 5.0 (Lollipop) bindService() must always be called with an explicit intent. 
-            //This was previously a recommendation, but since Lollipop it is enforced: 
+            //This was previously a recommendation, but since Lollipop it is enforced: by
             //java.lang.IllegalArgumentException
             connection = new ServiceConnection(this);
-            var result = BindService(new Intent("io.mail.TimeService.BIND"),
-                connection, Bind.AutoCreate);
-
+            Intent intent = new Intent(this, typeof(TimeService));
+            var result = BindService(intent, connection, Bind.AutoCreate);
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
 
-            if (!isConfigurationChange) {
-                if (isBound) {
+            if (!isConfigurationChange)
+            {
+                if (isBound)
+                {
                     UnbindService(connection);
                     isBound = false;
                 }
             }
         }
+
         #endregion
 
         void InitializeContent()
@@ -53,10 +57,10 @@ namespace AMailSync.View {
             theButton.Click += (sender, e) => { StartService(); };
             theButton = FindViewById<Button>(Resource.Id.buttonStopService);
             theButton.Click += (sender, e) => { StopService(); };
-            theButton = FindViewById<Button>(Resource.Id.buttonRefresh);
-            theButton.Click += (sender, e) => { CallService(); };
-        }
 
+            FindViewById<Button>(Resource.Id.buttonRefresh)
+                .Click += (sender, e) => { CallService(); };
+        }
 
         #region ServiceCommunication
 
@@ -82,6 +86,7 @@ namespace AMailSync.View {
         #endregion
 
         #region Service Connection
+
         private TimeServiceBinder binder;
         private ServiceConnection connection;
         private bool isConfigurationChange = false;
@@ -109,8 +114,10 @@ namespace AMailSync.View {
                 activity.binder = null;
             }
         }
+
         // return the service connection if there is a configuration change
-        public override Java.Lang.Object OnRetainNonConfigurationInstance() {
+        public override Java.Lang.Object OnRetainNonConfigurationInstance()
+        {
             base.OnRetainNonConfigurationInstance();
 
             isConfigurationChange = true;
