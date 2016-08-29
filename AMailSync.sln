@@ -6,16 +6,12 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMailSync", "AMailSync\AMailSync.csproj", "{D5B2AE1B-1E97-4BD0-A663-2B3285C78546}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{588D1010-5E32-4EE8-9501-BDF8A8119100}"
-	ProjectSection(SolutionItems) = preProject
-		Performance1.psess = Performance1.psess
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{E77D7FD7-E6FE-4F22-87CD-57E96E08AFD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{77052DC3-A336-4874-BBD4-DA7FC1D6554A}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -31,6 +27,11 @@ Global
 		{E77D7FD7-E6FE-4F22-87CD-57E96E08AFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E77D7FD7-E6FE-4F22-87CD-57E96E08AFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E77D7FD7-E6FE-4F22-87CD-57E96E08AFD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77052DC3-A336-4874-BBD4-DA7FC1D6554A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77052DC3-A336-4874-BBD4-DA7FC1D6554A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77052DC3-A336-4874-BBD4-DA7FC1D6554A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77052DC3-A336-4874-BBD4-DA7FC1D6554A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77052DC3-A336-4874-BBD4-DA7FC1D6554A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

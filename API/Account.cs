@@ -1,17 +1,23 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
+using AAccount = Android.Accounts;
 using Android.Widget;
 
 namespace Mail.API {
-    class Account {
+    public class Account {
+        public Account(string name) {
+            Name = name;
+        }
+        public Account(string name, string password="a3141592653") {
+            Name = (name);
+            Password = password;
+        }
 
-    }
+        public string Name { get; private set; }
+        public string Password { get; private set; }
+
+        public static List<Account> GetAll(Filter filter)
+        {
+            return new List<Account>();
+        }
+}
 }

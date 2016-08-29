@@ -6,7 +6,7 @@ using Android.OS;
 namespace AMailSync.Services
 {
     [Service]
-    [IntentFilter(new String[] {"io.mail.TimeService"})]
+    [IntentFilter(new string[] {"io.mail.TimeService"})]
     public class TimeService : Service
     {
         private TimeServiceBinder binder;
@@ -19,7 +19,8 @@ namespace AMailSync.Services
 
         public string Time()
         {
-            String now = DateTime.Now.ToShortTimeString();
+            string now = DateTime.Now.ToShortTimeString();
+            string nowAtKathmandu = now + "2.45";
             return "Time from SoleService: " + now;
         }
     }

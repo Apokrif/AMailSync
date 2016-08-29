@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AMailSync.MainActivity" Collapsed="true">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Android.App.Activity">
+    <Position X="5.5" Y="0.75" Width="2.75" />
+    <Members>
+      <Property Name="CallingActivity" Hidden="true" />
+      <Property Name="ChangingConfigurations" Hidden="true" />
+      <Property Name="ComponentName" Hidden="true" />
+      <Property Name="ContentScene" Hidden="true" />
+      <Property Name="ContentTransitionManager" Hidden="true" />
+      <Property Name="HasWindowFocus" Hidden="true" />
+      <Property Name="Immersive" Hidden="true" />
+      <Property Name="IsChild" Hidden="true" />
+      <Property Name="IsDestroyed" Hidden="true" />
+      <Property Name="IsFinishing" Hidden="true" />
+      <Property Name="IsTaskRoot" Hidden="true" />
+      <Property Name="IsVoiceInteraction" Hidden="true" />
+      <Property Name="IsVoiceInteractionRoot" Hidden="true" />
+      <Property Name="JniPeerMembers" Hidden="true" />
+      <Property Name="LastNonConfigurationInstance" Hidden="true" />
+      <Property Name="LocalClassName" Hidden="true" />
+      <Property Name="MediaController" Hidden="true" />
+      <Property Name="Referrer" Hidden="true" />
+      <Property Name="RequestedOrientation" Hidden="true" />
+      <Property Name="SearchEvent" Hidden="true" />
+      <Property Name="TaskId" Hidden="true" />
+      <Property Name="ThresholdClass" Hidden="true" />
+      <Property Name="ThresholdType" Hidden="true" />
+      <Property Name="TitleColor" Hidden="true" />
+      <Property Name="TitleFormatted" Hidden="true" />
+      <Property Name="VoiceInteractor" Hidden="true" />
+      <Property Name="VolumeControlStream" Hidden="true" />
+      <Property Name="WindowManager" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Android.App.Activity.InterfaceConsts" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+    <Lollipop Orientation="Right" Position="0.256" />
+  </Class>
+  <Class Name="AMailSync.View.MonitorActivity">
+    <Position X="1.5" Y="2.25" Width="2.5" />
+    <NestedTypes>
+      <Class Name="AMailSync.View.MonitorActivity.ServiceConnection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>View\MonitorActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <InheritanceLine Type="Android.App.Activity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="5.5" Y="4.095" />
+        <Point X="4" Y="4.095" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAEIBBAJAAACAAEBAAAEAAAAAAAAA=</HashCode>
+      <FileName>View\MonitorActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

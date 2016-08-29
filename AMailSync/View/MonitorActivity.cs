@@ -6,23 +6,19 @@ using Android.OS;
 using Android.Widget;
 using Android.Content.PM;
 
-namespace AMailSync.View
-{
+namespace AMailSync.View {
     [Activity(Label = "Monitor")]
-    public class MonitorActivity : Activity
-    {
+    public class MonitorActivity : Activity {
         #region Activity
 
-        protected override void OnCreate(Bundle savedInstanceState)
-        {
+        protected override void OnCreate(Bundle savedInstanceState) {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.MonitorLayout);
             InitializeContent();
         }
 
-        protected override void OnStart()
-        {
+        protected override void OnStart() {
             base.OnStart();
 
             //Since Android 5.0 (Lollipop) bindService() must always be called with an explicit intent. 
@@ -33,14 +29,11 @@ namespace AMailSync.View
             var result = BindService(intent, connection, Bind.AutoCreate);
         }
 
-        protected override void OnDestroy()
-        {
+        protected override void OnDestroy() {
             base.OnDestroy();
 
-            if (!isConfigurationChange)
-            {
-                if (isBound)
-                {
+            if (!isConfigurationChange) {
+                if (isBound) {
                     UnbindService(connection);
                     isBound = false;
                 }
@@ -49,37 +42,53 @@ namespace AMailSync.View
 
         #endregion
 
-        void InitializeContent()
-        {
+        /// <summary>
+        /// Set up widgets reaction on user events
+        /// </summary>
+        void InitializeContent() {
+            // This temporary variable is for the start button
+            // ReSharper disable once JoinDeclarationAndInitializer
             Button theButton;
-
             theButton = FindViewById<Button>(Resource.Id.buttonStartService);
             theButton.Click += (sender, e) => { StartService(); };
+
+            // Use the same vriable for another button
             theButton = FindViewById<Button>(Resource.Id.buttonStopService);
             theButton.Click += (sender, e) => { StopService(); };
 
+            // Third case do not use explicit auxilary variable
             FindViewById<Button>(Resource.Id.buttonRefresh)
                 .Click += (sender, e) => { CallService(); };
         }
+        #region Monitor
 
-        #region ServiceCommunication
-
-        private void StartService()
-        {
-            StartService(new Intent(this, typeof(TimeService)));
+        private string SomeText {
+            get {
+                return
+                    FindViewById<TextView>(Resource.Id.textViewServiceResponce).Text;
+            }
+            set { FindViewById<TextView>(Resource.Id.textViewServiceResponce).Text = value; }
         }
 
-        private void StopService()
-        {
+        #endregion
+        
+        #region Service Communication
+
+        private void StartService() {
+            StartService(new Intent(this, typeof(TimeService)));
+            SomeText = typeof (TimeService).ToString();
+        }
+
+        private void StopService() {
             StopService(new Intent(this, typeof(TimeService)));
         }
 
-        private void CallService()
-        {
-            RunOnUiThread(() =>
-            {
+        private void CallService() {
+            RunOnUiThread(() => {
                 string text = binder.GetService().Time();
                 Console.WriteLine("{0} returned from Sole Service", text);
+                FindViewById<TextView>(Resource.Id.textViewServiceResponce)
+                    .Text = text;
             });
         }
 
@@ -92,32 +101,27 @@ namespace AMailSync.View
         private bool isConfigurationChange = false;
         private bool isBound = false;
 
-        class ServiceConnection : Java.Lang.Object, IServiceConnection
-        {
+        class ServiceConnection : Java.Lang.Object, IServiceConnection {
             private MonitorActivity activity;
 
-            public ServiceConnection(MonitorActivity activity)
-            {
+            public ServiceConnection(MonitorActivity activity) {
                 this.activity = activity;
             }
 
-            void IServiceConnection.OnServiceConnected(ComponentName name, IBinder service)
-            {
+            void IServiceConnection.OnServiceConnected(ComponentName name, IBinder service) {
                 var serviceBinder = service as TimeServiceBinder;
                 if (serviceBinder == null)
                     return;
                 activity.binder = serviceBinder;
             }
 
-            void IServiceConnection.OnServiceDisconnected(ComponentName name)
-            {
+            void IServiceConnection.OnServiceDisconnected(ComponentName name) {
                 activity.binder = null;
             }
         }
 
         // return the service connection if there is a configuration change
-        public override Java.Lang.Object OnRetainNonConfigurationInstance()
-        {
+        public override Java.Lang.Object OnRetainNonConfigurationInstance() {
             base.OnRetainNonConfigurationInstance();
 
             isConfigurationChange = true;
