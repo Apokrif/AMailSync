@@ -18,16 +18,12 @@ namespace AMailSync.View {
             InitializeContent();
         }
 
-        protected override void OnStart() {
+        protected override void OnStart(){
             base.OnStart();
 
-            //Since Android 5.0 (Lollipop) bindService() must always be called with an explicit intent. 
-            //This was previously a recommendation, but since Lollipop it is enforced: by
-            //java.lang.IllegalArgumentException
-            connection = new ServiceConnection(this);
-            Intent intent = new Intent(this, typeof(TimeService));
-            var result = BindService(intent, connection, Bind.AutoCreate);
+            var result = BindService();
         }
+
 
         protected override void OnDestroy() {
             base.OnDestroy();
@@ -80,7 +76,22 @@ namespace AMailSync.View {
         }
 
         private void StopService() {
-            StopService(new Intent(this, typeof(TimeService)));
+            var result = StopService(new Intent(this, typeof(TimeService)));
+            SomeText = "Stop service, result: " + result.ToString();
+        }
+        /// <summary>
+        /// Bind to Time service by explicit Intent 
+        /// </summary>
+        /// <returns>true if success</returns>
+        private bool BindService() {
+            (Application as SyncApplication).Initialize();
+            //Since Android 5.0 (Lollipop) bindService() must always be called with an explicit intent. 
+            //This was previously a recommendation, but since Lollipop it is enforced: by
+            //java.lang.IllegalArgumentException
+            connection = new ServiceConnection(this);
+            Intent intent = new Intent(this, typeof(TimeService));
+            var result = BindService(intent, connection, Bind.AutoCreate);
+            return result;
         }
 
         private void CallService() {
@@ -121,6 +132,7 @@ namespace AMailSync.View {
         }
 
         // return the service connection if there is a configuration change
+        [Obsolete("deprecated")]
         public override Java.Lang.Object OnRetainNonConfigurationInstance() {
             base.OnRetainNonConfigurationInstance();
 
