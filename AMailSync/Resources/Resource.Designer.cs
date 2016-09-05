@@ -69,14 +69,14 @@ namespace AMailSync
 			// aapt resource value: 0x7f050005
 			public const int buttonRefresh = 2131034117;
 			
-			// aapt resource value: 0x7f050002
-			public const int buttonStartService = 2131034114;
-			
 			// aapt resource value: 0x7f050003
-			public const int buttonStopService = 2131034115;
+			public const int buttonStartService = 2131034115;
 			
 			// aapt resource value: 0x7f050004
-			public const int textViewServiceResponce = 2131034116;
+			public const int buttonStopService = 2131034116;
+			
+			// aapt resource value: 0x7f050002
+			public const int textViewServiceResponce = 2131034114;
 			
 			static Id()
 			{

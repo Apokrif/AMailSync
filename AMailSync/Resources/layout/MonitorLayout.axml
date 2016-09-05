@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
+    <TextView
+        android:text="Service State"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewServiceResponce" />
     <Button
         android:text="Start"
         android:layout_width="match_parent"
@@ -15,11 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonStopService" />
-    <TextView
-        android:text="Service State"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewServiceResponce" />
     <Button
         android:text="Refresh"
         android:layout_width="match_parent"

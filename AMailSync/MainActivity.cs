@@ -10,8 +10,7 @@ using AMailSync.View;
 namespace AMailSync {
     [Activity(Label = "AMailSync", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity {
-        //int count = 1;
-        //private static readonly string 
+        #region Activity
 
         protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
@@ -24,13 +23,14 @@ namespace AMailSync {
             Button button = FindViewById<Button>(Resource.Id.MyButton);
 
             button.Click +=
-                delegate { button.Text = string.Format("{0} Timer clicks!", DateTime.Now.ToLongTimeString()); };
+              delegate { button.Text = string.Format("{0} :Timer result", DateTime.Now.ToLongTimeString()); };
 
             Button buttonMonitor = FindViewById<Button>(Resource.Id.FollowToMonitorButton);
 
             buttonMonitor.Click +=
-                delegate { StartActivity(new Intent(this, typeof(MonitorActivity))); };
+              delegate { StartActivity(new Intent(this, typeof(MonitorActivity))); };
         }
 
-    }
+        #endregion
+    } //MainActivity
 }
