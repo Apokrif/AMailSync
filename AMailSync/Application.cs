@@ -13,6 +13,8 @@ using Account = Android.Accounts.Account;
 using AManager = Android.Accounts.AccountManager;
 using Android.Content.PM;
 using Android.App;
+
+using MailKit.Net.Imap;
 //using Mail.API;
 
 namespace AMailSync {
@@ -73,5 +75,14 @@ namespace AMailSync {
 
         }
         #endregion
+
+        //await Mail.Client.ConnectAsync(textServer.Text, port, checkSsl.Checked);
+        #region Mail.Client
+        public void InitializeMailClients() {
+            new ImapClient();
+        }
+
+        #endregion
+
     }
 }
